@@ -1,4 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import ImageUploader from './components/ImageUploader.vue'
+
+const selectedFile = ref<File | null>(null)
+
+function onFileSelected(file: File) {
+  selectedFile.value = file
+}
+</script>
 
 <template>
   <header class="app-header">
@@ -8,7 +17,9 @@
 
   <main class="app-main">
     <section class="upload-card">
-      <!-- components will go here -->
+      <ImageUploader @file-selected="onFileSelected" />
+
+      <button class="analyze-btn" :disabled="!selectedFile">Upload and Analyze</button>
     </section>
   </main>
 </template>
@@ -47,5 +58,31 @@
   justify-content: center;
   flex-direction: column;
   gap: 1rem;
+}
+
+.analyze-btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.analyze-btn:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>
