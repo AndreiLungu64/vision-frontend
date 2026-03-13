@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del /q srccomponentsImageUploader.vue srccomponentsResultLabel.vue srccomponentsResultsPanel.vue srccomposablesuseImageAnalysis.ts .env)"
+    ]
+  }
+}
