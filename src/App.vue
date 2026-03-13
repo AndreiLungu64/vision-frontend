@@ -1,11 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import ImageUploader from './components/ImageUploader.vue'
+import { useImageAnalysis } from './composables/useImageAnalysis'
 
 const selectedFile = ref<File | null>(null)
 
+const { isLoading, error, analyze, reset } = useImageAnalysis()
+
 function onFileSelected(file: File) {
   selectedFile.value = file
+  reset()
+}
+
+async function onAnalyze() {
+  if (!selectedFile.value) return
+  await analyze(selectedFile.value)
 }
 </script>
 
@@ -19,7 +28,15 @@ function onFileSelected(file: File) {
     <section class="upload-card">
       <ImageUploader @file-selected="onFileSelected" />
 
-      <button class="analyze-btn" :disabled="!selectedFile">Upload and Analyze</button>
+      <button class="analyze-btn" :disabled="!selectedFile || isLoading" @click="onAnalyze">
+        <template v-if="isLoading">
+          <span class="spinner" />
+          Analyzing...
+        </template>
+        <template v-else> Upload and Analyze </template>
+      </button>
+
+      <p v-if="error" class="error-msg">{{ error }}</p>
     </section>
   </main>
 </template>
@@ -84,5 +101,26 @@ function onFileSelected(file: File) {
 .analyze-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-msg {
+  color: #ef4444;
+  font-size: 0.85rem;
+  text-align: center;
 }
 </style>
