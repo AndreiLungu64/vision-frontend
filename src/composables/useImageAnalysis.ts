@@ -12,7 +12,7 @@ export interface ClassifyResponse {
   needs_review: boolean
 }
 
-const API_URL = import.meta.env.BACKEND_API_URL ?? 'http://localhost:8000'
+const API_URL = import.meta.env.VITE_BACKEND_API_URL ?? 'http://backend:8000'
 
 export function useImageAnalysis() {
   const result = ref<ClassifyResponse | null>(null)
