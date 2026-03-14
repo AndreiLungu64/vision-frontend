@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import ImageUploader from './components/ImageUploader.vue'
+import ResultsPanel from './components/ResultsPanel.vue'
 import { useImageAnalysis } from './composables/useImageAnalysis'
 
 const selectedFile = ref<File | null>(null)
 
-const { isLoading, error, analyze, reset } = useImageAnalysis()
+const { result, isLoading, error, analyze, reset } = useImageAnalysis()
 
 function onFileSelected(file: File) {
   selectedFile.value = file
@@ -38,6 +39,8 @@ async function onAnalyze() {
 
       <p v-if="error" class="error-msg">{{ error }}</p>
     </section>
+
+    <ResultsPanel :result="result" />
   </main>
 </template>
 
