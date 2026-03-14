@@ -1,16 +1,16 @@
 :root {
-  --color-background: #0f0f14;
-  --color-background-card: #1a1a24;
-  --color-background-input: #12121a;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.15);
-  --color-border-dashed: rgba(255, 255, 255, 0.12);
-  --color-text-primary: #e8e8ed;
-  --color-text-secondary: rgba(255, 255, 255, 0.5);
-  --color-accent: #6c5ce7;
-  --color-accent-hover: #7c6ff7;
-  --color-accent-gradient: linear-gradient(90deg, #6c5ce7, #a855f7);
-  --color-bar-bg: rgba(255, 255, 255, 0.06);
+  --color-background: #0d0d0d;
+  --color-background-card: #191c1f;
+  --color-background-input: #111314;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-hover: rgba(255, 255, 255, 0.14);
+  --color-border-dashed: rgba(255, 255, 255, 0.10);
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: rgba(255, 255, 255, 0.45);
+  --color-accent: #0b84f6;
+  --color-accent-hover: #2d9af8;
+  --color-accent-gradient: linear-gradient(90deg, #0b84f6, #5eadfa);
+  --color-bar-bg: rgba(255, 255, 255, 0.05);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;

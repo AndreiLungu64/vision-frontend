@@ -109,7 +109,7 @@ defineExpose({ clear })
 .dropzone:hover,
 .dropzone.dragging {
   border-color: var(--color-accent);
-  background-color: rgba(108, 92, 231, 0.04);
+  background-color: rgba(11, 132, 246, 0.04);
 }
 
 .dropzone.has-preview {
