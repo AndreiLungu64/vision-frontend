@@ -30,6 +30,7 @@ defineProps<{
 
 <style scoped>
 .results-panel {
+  flex: 1;
   background: var(--color-background-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
